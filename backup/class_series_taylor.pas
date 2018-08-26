@@ -131,7 +131,6 @@ var n: Integer = 0;
     NewError,
     xn, xnn : Real;
 begin
-   //x:=x-floor(x/(2*pi))*2*pi;
    Result:= 0;
    Result:= Result + (1/factorial(2*n+1)) * power(x,2*n+1);
    xn:= Result;
@@ -142,7 +141,7 @@ begin
      NewError:= abs(xnn-xn);
      xn:=xnn;
      n:= n + 1;
-   until ( ( NewError<=Error ));
+   until ( ( NewError<=Error ) );
 end;
 
 function TTaylor.test(): Real;

@@ -105,7 +105,7 @@ begin
      NewError:= abs(xnn-xn);
      xn:=xnn;
      n:= n + 1;
-   until ( ( NewError<=Error ) or ( n > 9 ) );
+   until ( ( NewError<=Error ) );
 end;
 
 function TTaylor.arctan(): Real;
@@ -123,7 +123,7 @@ begin
      NewError:= abs(xnn-xn);
      xn:=xnn;
      n:= n + 1;
-   until ( ( NewError<=Error ) or ( n > 9 ) );
+   until ( ( NewError<=Error ) );
 end;
 
 function TTaylor.sinh(): Real;
@@ -141,7 +141,7 @@ begin
      NewError:= abs(xnn-xn);
      xn:=xnn;
      n:= n + 1;
-   until ( ( NewError<=Error ));
+   until ( ( NewError<=Error ) );
 end;
 
 function TTaylor.test(): Real;
