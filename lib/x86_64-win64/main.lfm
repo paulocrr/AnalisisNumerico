@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 2364
+  Left = 2822
   Height = 688
-  Top = 61
+  Top = 59
   Width = 538
   Caption = 'Form1'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 688
+  ClientWidth = 538
   LCLVersion = '1.8.2.0'
   object LabelValor: TLabel
     Left = 104
@@ -65,61 +65,45 @@ object Form1: TForm1
     TabOrder = 3
     object RadioButtonSin: TRadioButton
       Left = 6
-      Height = 26
+      Height = 37
       Top = 0
       Width = 315
       Caption = 'Seno'
       Checked = True
-      TabOrder = 6
+      TabOrder = 3
       TabStop = True
     end
     object RadioButtonCos: TRadioButton
       Left = 6
-      Height = 26
-      Top = 26
+      Height = 37
+      Top = 37
       Width = 315
       Caption = 'Coseno'
       TabOrder = 0
     end
-    object RadioButtonTan: TRadioButton
-      Left = 6
-      Height = 26
-      Top = 52
-      Width = 315
-      Caption = 'Tangente'
-      TabOrder = 1
-    end
-    object RadioButtonSec: TRadioButton
-      Left = 6
-      Height = 26
-      Top = 78
-      Width = 315
-      Caption = 'Secante'
-      TabOrder = 2
-    end
-    object RadioButtonCsc: TRadioButton
-      Left = 6
-      Height = 26
-      Top = 104
-      Width = 315
-      Caption = 'Cosecante'
-      TabOrder = 3
-    end
     object RadioButtonArcSin: TRadioButton
       Left = 6
-      Height = 26
-      Top = 130
+      Height = 37
+      Top = 74
       Width = 315
       Caption = 'ArcSeno'
-      TabOrder = 4
+      TabOrder = 1
     end
     object RadioButtonArcTan: TRadioButton
       Left = 6
-      Height = 25
-      Top = 156
+      Height = 37
+      Top = 111
       Width = 315
       Caption = 'ArcTan'
-      TabOrder = 5
+      TabOrder = 2
+    end
+    object RadioButtonSinH: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 148
+      Width = 315
+      Caption = 'Seno Hiperbolico'
+      TabOrder = 4
     end
   end
   object MemoAnswer: TMemo

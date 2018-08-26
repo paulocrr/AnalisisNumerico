@@ -15,7 +15,8 @@ type
     function coseno(): Real;
     function arcseno(): Real;
     function arctan(): Real;
-    function test(): LongInt;
+    function sinh(): Real;
+    function test(): Real;
     private
 
     public
@@ -26,11 +27,11 @@ type
 
 implementation
 
-function factorial( n: Integer ): LongInt;
+function factorial( n: Integer ): Real;
 var i:Integer;
 begin
    Result:=1;
-   if (n<>0) or (n<>1) then
+   if (n<>0) and (n<>1) then
    begin
     for i:=n downto 2 do
     begin
@@ -56,17 +57,18 @@ var n: Integer = 0;
     NewError,
     xn, xnn : Real;
 begin
+   x:=x-floor(x/(2*pi))*2*pi;
    Result:= 0;
-   Result:= Result + (power(-1,n)/factorial(2*n+1))*power(x,2*n+1);
+   Result:= Result + (power(-1,n)/factorial(2*n+1)) * power(x,2*n+1);
    xn:= Result;
    n:= n + 1;
    repeat
-     Result:= Result + (power(-1,n)/factorial(2*n+1))*power(x,2*n+1);
+     Result:= Result + (power(-1,n)/factorial(2*n+1)) * power(x,2*n+1);
      xnn := Result;
      NewError:= abs(xnn-xn);
      xn:=xnn;
      n:= n + 1;
-   until ( ( NewError<=Error ) or ( n > 8 ) );
+   until ( ( NewError<=Error ));
 end;
 
 function TTaylor.coseno(): Real;
@@ -74,6 +76,7 @@ var n: Integer = 0;
     NewError,
     xn, xnn : Real;
 begin
+   x:=x-floor(x/(2*pi))*2*pi;
    Result:= 0;
    Result:= Result + (power(-1,n)/factorial(2*n))*power(x,2*n);
    xn:= Result;
@@ -84,7 +87,7 @@ begin
      NewError:= abs(xnn-xn);
      xn:=xnn;
      n:= n + 1;
-   until ( ( NewError<=Error ) or ( n > 9 ) );
+   until ( ( NewError<=Error ) );
 end;
 
 function TTaylor.arcseno(): Real;
@@ -123,7 +126,25 @@ begin
    until ( ( NewError<=Error ) or ( n > 9 ) );
 end;
 
-function TTaylor.test(): LongInt;
+function TTaylor.sinh(): Real;
+var n: Integer = 0;
+    NewError,
+    xn, xnn : Real;
+begin
+   Result:= 0;
+   Result:= Result + (1/factorial(2*n+1)) * power(x,2*n+1);
+   xn:= Result;
+   n:= n + 1;
+   repeat
+     Result:= Result + (1/factorial(2*n+1)) * power(x,2*n+1);
+     xnn := Result;
+     NewError:= abs(xnn-xn);
+     xn:=xnn;
+     n:= n + 1;
+   until ( ( NewError<=Error ));
+end;
+
+function TTaylor.test(): Real;
 begin
    Result := factorial(y);
 end;

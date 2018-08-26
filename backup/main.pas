@@ -19,15 +19,14 @@ type
     LabelError: TLabel;
     LabelValor: TLabel;
     MemoAnswer: TMemo;
+    RadioButtonSinH: TRadioButton;
     RadioButtonSin: TRadioButton;
     RadioButtonCos: TRadioButton;
-    RadioButtonTan: TRadioButton;
-    RadioButtonSec: TRadioButton;
-    RadioButtonCsc: TRadioButton;
     RadioButtonArcSin: TRadioButton;
     RadioButtonArcTan: TRadioButton;
     RadioGroupOT: TRadioGroup;
     procedure ButtonCalculateClick(Sender: TObject);
+    procedure RadioButtonTanChange(Sender: TObject);
   private
 
   public
@@ -49,27 +48,20 @@ begin
   Taylor := TTaylor.create();
   Taylor.Error := StrToFloat(EditError.Text);
   Taylor.x:=StrToFloat(EditValor.Text);
+
   if(RadioButtonSin.Checked) then
   begin
-     if(StrToFloat(EditError.Text)<=Pi) and (StrToFloat(EditError.Text)>=(Pi*-1)) then
-     begin
-          MemoAnswer.Lines.Add('Sen('+EditValor.Text+') = '+FloatToStr(Taylor.seno()));
-     end
-     else MemoAnswer.Lines.Add('Valor Fuera del Rango de la funcion Seno');
+       MemoAnswer.Lines.Add('Sen('+EditValor.Text+') = '+FloatToStr(Taylor.seno()));
   end;
 
   if(RadioButtonCos.Checked) then
   begin
-     if(StrToFloat(EditError.Text)<=Pi) and (StrToFloat(EditError.Text)>=(Pi*-1)) then
-     begin
-          MemoAnswer.Lines.Add('Cos('+EditValor.Text+') = '+FloatToStr(Taylor.coseno()));
-     end
-     else MemoAnswer.Lines.Add('Valor Fuera del Rango de la funcion Coseno');
+       MemoAnswer.Lines.Add('Cos('+EditValor.Text+') = '+FloatToStr(Taylor.coseno()));
   end;
 
   if(RadioButtonArcSin.Checked) then
   begin
-     if(abs(StrToFloat(EditError.Text))<1) then
+     if( abs(StrToFloat(EditValor.Text))<1 ) then
      begin
           MemoAnswer.Lines.Add('ArcSin('+EditValor.Text+') = '+FloatToStr(Taylor.arcseno()));
      end
@@ -78,14 +70,24 @@ begin
 
   if(RadioButtonArcTan.Checked) then
   begin
-     if(abs(StrToFloat(EditError.Text))<1) then
+     if(abs(StrToFloat(EditValor.Text))<1) then
      begin
           MemoAnswer.Lines.Add('ArcTan('+EditValor.Text+') = '+FloatToStr(Taylor.arctan()));
      end
      else MemoAnswer.Lines.Add('Valor fuera del rango de la funcion ArcTan');
   end;
+
+  if(RadioButtonSinH.Checked) then
+  begin
+     MemoAnswer.Lines.Add('Senh('+EditValor.Text+') = '+FloatToStr(Taylor.sinh()));
+  end;
+
   Taylor.Destroy;
 end;
+
+procedure TForm1.RadioButtonTanChange(Sender: TObject);
+begin
+  end;
 
 end.
 
