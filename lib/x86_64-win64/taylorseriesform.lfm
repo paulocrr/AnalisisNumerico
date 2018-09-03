@@ -1,0 +1,116 @@
+object FormTaylorSeries: TFormTaylorSeries
+  Left = 2544
+  Height = 684
+  Top = 24
+  Width = 531
+  Caption = 'Series de Taylor'
+  ClientHeight = 684
+  ClientWidth = 531
+  LCLVersion = '1.8.2.0'
+  object LabelValor: TLabel
+    Left = 104
+    Height = 15
+    Top = 32
+    Width = 35
+    Caption = 'Valor:  '
+    ParentColor = False
+  end
+  object EditValor: TEdit
+    Left = 148
+    Height = 23
+    Top = 32
+    Width = 288
+    TabOrder = 0
+  end
+  object LabelError: TLabel
+    Left = 105
+    Height = 15
+    Top = 64
+    Width = 31
+    Caption = 'Error: '
+    ParentColor = False
+  end
+  object EditError: TEdit
+    Left = 148
+    Height = 23
+    Top = 64
+    Width = 288
+    TabOrder = 1
+  end
+  object ButtonCalculate: TButton
+    Left = 228
+    Height = 25
+    Top = 320
+    Width = 75
+    Caption = 'Calcular'
+    OnClick = ButtonCalculateClick
+    TabOrder = 2
+  end
+  object RadioGroupOT: TRadioGroup
+    Left = 105
+    Height = 201
+    Top = 104
+    Width = 331
+    AutoFill = True
+    Caption = 'Operaciones Trigonometricas'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 181
+    ClientWidth = 327
+    TabOrder = 3
+    object RadioButtonSin: TRadioButton
+      Left = 6
+      Height = 37
+      Top = 0
+      Width = 315
+      Caption = 'Seno'
+      Checked = True
+      TabOrder = 3
+      TabStop = True
+    end
+    object RadioButtonCos: TRadioButton
+      Left = 6
+      Height = 37
+      Top = 37
+      Width = 315
+      Caption = 'Coseno'
+      TabOrder = 0
+    end
+    object RadioButtonArcSin: TRadioButton
+      Left = 6
+      Height = 37
+      Top = 74
+      Width = 315
+      Caption = 'ArcSeno'
+      TabOrder = 1
+    end
+    object RadioButtonArcTan: TRadioButton
+      Left = 6
+      Height = 37
+      Top = 111
+      Width = 315
+      Caption = 'ArcTan'
+      TabOrder = 2
+    end
+    object RadioButtonSinH: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 148
+      Width = 315
+      Caption = 'Seno Hiperbolico'
+      TabOrder = 4
+    end
+  end
+  object MemoAnswer: TMemo
+    Left = 111
+    Height = 199
+    Top = 377
+    Width = 325
+    TabOrder = 4
+  end
+end

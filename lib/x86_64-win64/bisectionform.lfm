@@ -1,0 +1,88 @@
+object FormBisection: TFormBisection
+  Left = 2046
+  Height = 691
+  Top = 69
+  Width = 746
+  Caption = 'Metodo de Bisección'
+  ClientHeight = 691
+  ClientWidth = 746
+  LCLVersion = '1.8.2.0'
+  object StringGridResults: TStringGrid
+    Left = 168
+    Height = 380
+    Top = 216
+    Width = 376
+    AutoEdit = False
+    AutoFillColumns = True
+    ColCount = 2
+    FixedCols = 0
+    FixedRows = 0
+    TabOrder = 0
+    ColWidths = (
+      186
+      186
+    )
+  end
+  object EditError: TEdit
+    Left = 200
+    Height = 23
+    Top = 88
+    Width = 344
+    TabOrder = 1
+  end
+  object LabelError: TLabel
+    Left = 168
+    Height = 15
+    Top = 88
+    Width = 31
+    Caption = 'Error: '
+    ParentColor = False
+  end
+  object LabelMinorInterval: TLabel
+    Left = 168
+    Height = 15
+    Top = 16
+    Width = 90
+    Caption = 'Intervalo Menor: '
+    ParentColor = False
+  end
+  object EditMinorInterval: TEdit
+    Left = 264
+    Height = 23
+    Top = 16
+    Width = 280
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 168
+    Height = 15
+    Top = 56
+    Width = 89
+    Caption = 'Intervalo Mayor: '
+    ParentColor = False
+  end
+  object EditGreaterInterval: TEdit
+    Left = 264
+    Height = 23
+    Top = 56
+    Width = 280
+    TabOrder = 3
+  end
+  object ButtonCalculate: TButton
+    Left = 312
+    Height = 25
+    Top = 124
+    Width = 75
+    Caption = 'Calcular'
+    OnClick = ButtonCalculateClick
+    TabOrder = 4
+  end
+  object LabelResults: TLabel
+    Left = 320
+    Height = 15
+    Top = 184
+    Width = 57
+    Caption = 'Resultados'
+    ParentColor = False
+  end
+end

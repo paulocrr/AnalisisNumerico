@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Main, class_series_taylor
+  Forms, Main, class_series_taylor, class_global_variables,
+  class_errors, class_bonsano, TaylorSeriesForm, bisectionform
   { you can add units after this };
 
 {$R *.res}
@@ -15,7 +16,9 @@ uses
 begin
   RequireDerivedFormResource:=True;
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TMenuForm, MenuForm);
+  Application.CreateForm(TFormTaylorSeries, FormTaylorSeries);
+  Application.CreateForm(TFormBisection, FormBisection);
   Application.Run;
 end.
 

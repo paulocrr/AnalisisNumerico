@@ -5,7 +5,7 @@ unit class_series_taylor;
 interface
 
 uses
-  Classes, SysUtils, Math;
+  Classes, SysUtils, Math,class_errors;
 
 type
   TTaylor = class
@@ -54,9 +54,11 @@ end;
 
 function TTaylor.seno(): Real;
 var n: Integer = 0;
+    var ErrorType: TErrors;
     NewError,
     xn, xnn : Real;
 begin
+   ErrorType := TErrors.create();
    x:=x-floor(x/(2*pi))*2*pi;
    Result:= 0;
    Result:= Result + (power(-1,n)/factorial(2*n+1)) * power(x,2*n+1);
@@ -65,7 +67,7 @@ begin
    repeat
      Result:= Result + (power(-1,n)/factorial(2*n+1)) * power(x,2*n+1);
      xnn := Result;
-     NewError:= abs(xnn-xn);
+     NewError:= ErrorType.AbsoluteAproxError(xnn,xn);
      xn:=xnn;
      n:= n + 1;
    until ( ( NewError<=Error ));
@@ -84,7 +86,7 @@ begin
    repeat
      Result:= Result + (power(-1,n)/factorial(2*n))*power(x,2*n);
      xnn := Result;
-     NewError:= abs(xnn-xn);
+     NewError:= ErrorType.AbsoluteAproxError(xnn,xn);
      xn:=xnn;
      n:= n + 1;
    until ( ( NewError<=Error ) );
@@ -102,10 +104,10 @@ begin
    repeat
      Result:= Result + (factorial(2*n)/(power(4,n)*power(factorial(n),2)*(2*n+1)))*power(x,2*n+1);
      xnn := Result;
-     NewError:= abs(xnn-xn);
+     NewError:= ErrorType.AbsoluteAproxError(xnn,xn);
      xn:=xnn;
      n:= n + 1;
-   until ( ( NewError<=Error ) or ( n > 9 ) );
+   until ( ( NewError<=Error ) );
 end;
 
 function TTaylor.arctan(): Real;
@@ -120,10 +122,10 @@ begin
    repeat
      Result:= Result + (power(-1,n)/(2*n+1))*power(x,2*n+1);
      xnn := Result;
-     NewError:= abs(xnn-xn);
+     NewError:= ErrorType.AbsoluteAproxError(xnn,xn);
      xn:=xnn;
      n:= n + 1;
-   until ( ( NewError<=Error ) or ( n > 9 ) );
+   until ( ( NewError<=Error ) );
 end;
 
 function TTaylor.sinh(): Real;
@@ -138,7 +140,7 @@ begin
    repeat
      Result:= Result + (1/factorial(2*n+1)) * power(x,2*n+1);
      xnn := Result;
-     NewError:= abs(xnn-xn);
+     NewError:= ErrorType.AbsoluteAproxError(xnn,xn);
      xn:=xnn;
      n:= n + 1;
    until ( ( NewError<=Error ) );
